@@ -35,14 +35,14 @@
 class Median
 {
 public:
-	/// add new integer element
-	virtual bool	add(int a) = 0;
-	/// return value of the middle element
-	virtual int		middle() const = 0;
-	/// return number of all elements
-	virtual size_t	size() const = 0;
-	/// empty container
-	virtual void	clear() = 0;
+    /// add new integer element
+    virtual bool    add(int a) = 0;
+    /// return value of the middle element
+    virtual int     middle() const = 0;
+    /// return number of all elements
+    virtual size_t  size() const = 0;
+    /// empty container
+    virtual void    clear() = 0;
 };
 
 //!  MedianVector finds median using <b>std::vector</b> and <b>std::sort</b>
@@ -56,13 +56,13 @@ public:
 class MedianVector : public Median
 {
 public:
-	virtual bool	add(int a) ;
-	virtual int		middle() const;
-	virtual size_t	size() const ;
-	virtual void	clear() ;
-	
+    virtual bool    add(int a) ;
+    virtual int     middle() const;
+    virtual size_t  size() const ;
+    virtual void    clear() ;
+    
 protected:
-	std::vector<int> m_arr;
+    std::vector<int> m_arr;
 };
 
 
@@ -77,13 +77,13 @@ protected:
 class MedianNthElement : public Median
 {
 public:
-	virtual bool	add(int a);
-	virtual int		middle() const;
-	virtual size_t	size() const;
-	virtual void	clear();
+    virtual bool    add(int a);
+    virtual int     middle() const;
+    virtual size_t  size() const;
+    virtual void    clear();
 
 protected:
-	std::vector<int> m_arr;
+    std::vector<int> m_arr;
 };
 
 //!  MedianVectorLBound calculate median using <b>std::vector</b> and <b>std::lower_bound</b>
@@ -99,13 +99,13 @@ protected:
 class MedianVectorLBound : public Median
 {
 public:
-	virtual bool	add(int a);
-	virtual int		middle() const;
-	virtual size_t	size() const;
-	virtual void	clear();
+    virtual bool    add(int a);
+    virtual int     middle() const;
+    virtual size_t  size() const;
+    virtual void    clear();
 
 private:
-	std::vector<int> m_arr;
+    std::vector<int> m_arr;
 };
 
 
@@ -119,13 +119,13 @@ private:
 class MedianMultisetAdvance : public Median
 {
 public:
-	virtual bool	add(int a);
-	virtual int		middle() const;
-	virtual size_t	size() const;
-	virtual void	clear();
+    virtual bool    add(int a);
+    virtual int     middle() const;
+    virtual size_t  size() const;
+    virtual void    clear();
 
 protected:
-	std::multiset<int> m_set;
+    std::multiset<int> m_set;
 };
 
 //!  MedianMultisetIterator finds median using <b>std::multiset</b> and saved iterator to the middle element. 
@@ -139,15 +139,15 @@ protected:
 class MedianMultisetIterator : public Median
 {
 public:
-	MedianMultisetIterator();
-	virtual bool	add(int a);
-	virtual int		middle() const;
-	virtual size_t	size() const;
-	virtual void	clear();
+    MedianMultisetIterator();
+    virtual bool    add(int a);
+    virtual int     middle() const;
+    virtual size_t  size() const;
+    virtual void    clear();
 
 protected:
-	std::multiset<int>				m_set;
-	std::multiset<int>::iterator	m_it;
-	unsigned int					m_pos;
+    std::multiset<int>              m_set;
+    std::multiset<int>::iterator    m_it;
+    unsigned int                    m_pos;
 };
 
