@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <set>
+#include "RBTree.h"
 
 /**
  * @file Median.h
@@ -12,6 +13,7 @@
  *   MedianVectorLBound
  *   MedianMultisetAdvance
  *   MedianMultisetIterator
+ *   MedianRBTree 
  */
 
 //!  Median class
@@ -150,4 +152,27 @@ protected:
     std::multiset<int>::iterator    m_it;
     unsigned int                    m_pos;
 };
+
+/*!
+   MedianRBTree uses for storage container Red-Black tree, all values are sorted in ascending order.
+   Allows obtaining of the middle value as start iterating from the root. 
+   Since Red-Black is a self balancing tree, the middle value would be very near to the root so the search has constant average complexity 
+  <br><b>add() Average Complexity O(log n) </b>
+  <br><b>middle() Average Complexity O(1) </b>
+*/
+
+//!  MedianRBTree finds median using <b>RBTree</b>
+class MedianRBTree : public Median
+{
+public:
+    virtual bool    add(int a);
+    virtual int     middle() const;
+    virtual size_t  size() const;
+    virtual void    clear();
+
+protected:
+    RBTree  m_bt;
+};
+
+
 

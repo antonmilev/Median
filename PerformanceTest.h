@@ -8,5 +8,6 @@
  * Tests can be run on Windows x86/x64 platforms.
  */
 
-bool performanceTest(Median& m, int N, long& elapsed_ms);
-bool performanceTestAll(int N);
+bool performanceTestAllRandom(int N);
+bool performanceTestAllWorst(int N);
+bool performanceTestAllRepeating(int N);

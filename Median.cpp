@@ -121,6 +121,9 @@ bool MedianMultisetAdvance::add(int a)
     return m_set.insert(a) != m_set.end();
 }
 
+
+
+
 //
 //  MedianMultisetIterator
 //
@@ -165,7 +168,7 @@ bool MedianMultisetIterator::add(int a)
         {   
             auto itPrev = it;
             itPrev--;
-            // check if to use advance
+            // xheck if to use advance
             if (*itPrev == *it)
             {
                 // reset iterator and update stored pointers
@@ -177,7 +180,7 @@ bool MedianMultisetIterator::add(int a)
             }
         }
 
-        // check if the added value is less or equal to the value in the stored pointer
+        // check if the added value is less or equal to the value in stored pointer
         // and move the iterator correspondingly
         if (*it <= *m_it)
         {
@@ -200,3 +203,30 @@ bool MedianMultisetIterator::add(int a)
     }
     return true;
 }
+
+//
+// MedianRBTree
+//
+size_t MedianRBTree::size() const
+{
+    return m_bt.size();
+}
+
+int MedianRBTree::middle() const
+{
+    if (!m_bt.size())
+        throw out_of_range("out of range");
+
+    return m_bt.middleValue();
+}
+
+void MedianRBTree::clear()
+{
+    m_bt.clear();
+}
+
+bool MedianRBTree::add(int a)
+{
+    return m_bt.insert(a);
+}
+

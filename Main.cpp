@@ -10,13 +10,13 @@ int main()
     unitTest_MedianVectorLBound();
     unitTest_MedianMultisetAdvance();
     unitTest_MedianMultisetIterator();
+    unitTest_MedianRBTree();
 
     // run these in Release only
 #ifdef NDEBUG
-    performanceTestAll(5000);
-    performanceTestAll(10000);
-    performanceTestAll(15000);
-    performanceTestAll(20000);
+    performanceTestAllRandom(20000);
+    performanceTestAllWorst(100000);
+    performanceTestAllRepeating(20000);
 #endif 
 
     return 0;
