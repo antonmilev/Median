@@ -1,5 +1,3 @@
-#include <queue>
-#include <iostream>
 #include "RBTree.h"
 
 RBTree::RBTree()
@@ -145,40 +143,6 @@ void RBTree::insertFixup(Node *x)
     root->type = BLACK;
 }
 
-// A recursive function to do level order traversal 
-void RBTree::inorderHelper(Node *root)
-{
-    if (root == NULL)
-        return;
-
-    inorderHelper(root->left);
-    std::cout << root->key << "  ";
-    inorderHelper(root->right);
-}
-
-// Utility function to do level order traversal 
-void RBTree::levelOrderHelper(Node *root)
-{
-    if (root == NULL)
-        return;
-
-    std::queue<Node *> q;
-    q.push(root);
-
-    while (!q.empty())
-    {
-        Node *temp = q.front();
-        std::cout << temp->key << "  ";
-        q.pop();
-
-        if (temp->left != NULL)
-            q.push(temp->left);
-
-        if (temp->right != NULL)
-            q.push(temp->right);
-    }
-}
-
 RBTree::Node* RBTree::allocNode(const int& key, Node* parent)
 {
     return new Node(key, parent);
@@ -218,7 +182,7 @@ bool RBTree::clear()
 
 RBTree::Node* RBTree::findParent(Node* node, const int& key) const
 {
-    Node* parent = NULL;
+    Node* parent = 0;
 
     while (node)
     {
@@ -241,18 +205,17 @@ RBTree::Node* RBTree::insertNode(Node* node, const int& key)
     if (!node)
     {
         root = allocNode(key, 0);
-        //first = last = root;
         count++;
-
         return root;
     }
 
     int index = 0;
 
+    // find the parent of 
     Node* parent = findParent(node, key);
 
     if (!parent)
-        return parent;  //should return 0?
+        return 0;  
 
     Node* newNode = allocNode(key, parent);
 
@@ -268,9 +231,6 @@ RBTree::Node* RBTree::insertNode(Node* node, const int& key)
         parent->nChilds++;
         parent = parent->parent;
     }
-
-    // link with other nodes
-    //link(newNode);
 
     count++;
     return newNode;
@@ -291,17 +251,6 @@ bool RBTree::insert(const int& key)
     insertFixup(newNode);
 
     return true;
-}
-
-// Function to do inorder and level order traversals 
-void RBTree::inorder() 
-{ 
-    inorderHelper(root); 
-}
-
-void RBTree::levelOrder() 
-{ 
-    levelOrderHelper(root); 
 }
 
 int RBTree::middleValue() const
@@ -326,7 +275,7 @@ int RBTree::middleValue() const
 
         if (idx < nIndex)     //go left
             node = node->left;
-        else
+        else                 
         {
             idx -= nIndex + 1;
             node = node->right;

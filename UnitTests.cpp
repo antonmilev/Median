@@ -305,14 +305,6 @@ int unitTest_MedianRBTree()
 	return errors;
 }
 
-int unitTest_MedianRBTreeExt()
-{
-	printf("Test MedianRBTreeExt...\n");
-	MedianRBTreeExt m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
-}
 
 
 

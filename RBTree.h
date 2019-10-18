@@ -3,6 +3,9 @@
 /**
  * @file RBTree.h
  * @brief multiset implementation of a Red-Black tree
+ *
+ * Similarily to std::multiset the tree allows inserting of duplicate values. 
+ * It is specially designed to find the median element in efficient way.
  */
 
 class RBTree
@@ -54,19 +57,19 @@ public:
         int       type;
         int       nChilds;
     };
-
-    bool insert(const int& key);
-
-    int size() const    { return count; }
-    bool clear();
-
+    
     RBTree();
 
-    void levelOrderHelper(Node *root);
-    void inorderHelper(Node *root);
-    void inorder();
-    void levelOrder();
+    /// insert new element
+    bool insert(const int& key);
 
+    /// return number of all inserted elements
+    int size() const    { return count; }
+
+    /// empty tree
+    bool clear();
+
+    /// get the value of the middle element
     int  middleValue() const;
 
 protected:
@@ -82,7 +85,10 @@ protected:
     Node* insertNode(Node* node, const int& key);
     void emptySubtree(Node* node);
 
+    /// pointer to the root of the tree
     Node* root;
+
+    /// integer to keep the number of the inserted elements
     int count;
 };
 

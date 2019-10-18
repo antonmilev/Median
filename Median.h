@@ -21,7 +21,7 @@
   Median calculation class interface
   <br><br>
   All Median Calculations classes needs to support Median Units Tests platform 
-  and should inherit <b>Median</b> and implement its virtual methods.
+  and should inherit <b>Median</b> interface and implement its virtual methods.
   <br>
   Purpose of Median and the derived classes is to find the <b>middle</b> element. 
   By <b>middle</b> it is understood the sorted in ascending order element exactly at position N/2, where N is the number of
@@ -64,6 +64,7 @@ public:
     virtual void    clear() ;
     
 protected:
+    /// vector used for storage of the sorted elements
     std::vector<int> m_arr;
 };
 
@@ -85,6 +86,7 @@ public:
     virtual void    clear();
 
 protected:
+    /// vector used for storage of the sorted elements
     std::vector<int> m_arr;
 };
 
@@ -107,6 +109,7 @@ public:
     virtual void    clear();
 
 private:
+    /// vector used for storage of the sorted elements
     std::vector<int> m_arr;
 };
 
@@ -127,6 +130,7 @@ public:
     virtual void    clear();
 
 protected:
+    /// multiset used for storage of the sorted elements
     std::multiset<int> m_set;
 };
 
@@ -148,8 +152,11 @@ public:
     virtual void    clear();
 
 protected:
+    /// vector used for storage of the sorted elements
     std::multiset<int>              m_set;
+    /// iterator to the middle element inside the set
     std::multiset<int>::iterator    m_it;
+    /// position of the middle element inside the set
     unsigned int                    m_pos;
 };
 
@@ -171,6 +178,7 @@ public:
     virtual void    clear();
 
 protected:
+    /// RBTree container used for storage of the sorted elements
     RBTree  m_bt;
 };
 

@@ -22,4 +22,3 @@ int unitTest_MedianNthElement();
 int unitTest_MedianMultisetAdvance();
 int unitTest_MedianMultisetIterator();
 int unitTest_MedianRBTree();
-int unitTest_MedianRBTreeExt();
