@@ -1,12 +1,14 @@
+\mainpage
 # Median
 
 Example project with several implementations of median calculation:
-<br> MedianVector - uses std::sort
-<br> MedianNthElement - uses std::nth_element
-<br> MedianVectorLBound - uses std::lower_bound
-<br> MedianMultisetAdvance - uses std::multiset and std::advance
-<br> MedianMultisetIterator - uses std::multiset with median iterator
-<br> MedianRBTree - uses Red-Black tree
+<br>
+<br> <b>MedianVector</b> - uses std::sort
+<br> <b>MedianNthElement</b> - uses std::nth_element
+<br> <b>MedianVectorLBound</b> - uses std::lower_bound
+<br> <b>MedianMultisetAdvance</b> - uses std::multiset and std::advance
+<br> <b>MedianMultisetIterator</b> - uses std::multiset with median iterator
+<br> <b>MedianRBTree</b> - uses Red-Black tree
 <br>
 Compiled with VS2017 or later (with loading CMakeLists.txt from File->Open->CMake..).
 
