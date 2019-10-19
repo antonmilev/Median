@@ -1,4 +1,3 @@
-\mainpage
 # Median
 
 Example project with several implementations of median calculation:
@@ -9,6 +8,7 @@ Example project with several implementations of median calculation:
 <br> <b>MedianMultisetAdvance</b> - uses std::multiset and std::advance
 <br> <b>MedianMultisetIterator</b> - uses std::multiset with median iterator
 <br> <b>MedianRBTree</b> - uses Red-Black tree
+<br>
 <br>
 Compiled with VS2017 or later (with loading CMakeLists.txt from File->Open->CMake..).
 
