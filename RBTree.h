@@ -3,6 +3,9 @@
 /**
  * @file RBTree.h
  * @brief multiset implementation of a Red-Black tree
+ * @author Anton Milev
+ * @version 1.0
+ * @date October 2019
  *
  * Similarily to std::multiset, this RB tree allows inserting of duplicate values. 
  * It is specially designed to find the median element in efficient way.
