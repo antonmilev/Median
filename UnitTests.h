@@ -15,10 +15,5 @@ int test_median_basic(Median& m);
 int test_median_iter(Median& m);
 int test_median_random(Median& m);
 
-int unitTest(Median& m);
-int unitTest_MedianVector();
-int unitTest_MedianVectorLBound();
-int unitTest_MedianNthElement();
-int unitTest_MedianMultisetAdvance();
-int unitTest_MedianMultisetIterator();
-int unitTest_MedianRBTree();
+int unitTest(const char* name);
+void unitTestAll();

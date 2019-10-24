@@ -29,6 +29,17 @@ bool MedianVector::add(int a)
     return true;
 }
 
+const char* MedianVector::Name() 
+{
+    return "MedianVector";
+}
+
+const char* MedianVector::name() const
+{
+    return Name();
+}
+
+
 //
 // MedianNthElement
 //
@@ -54,6 +65,16 @@ int MedianNthElement::middle() const
     if (!m_arr.size())
         throw out_of_range("out of range");
     return m_arr[(m_arr.size() - 1) / 2];
+}
+
+const char* MedianNthElement::Name() 
+{
+    return "MedianNthElement";
+}
+
+const char* MedianNthElement::name() const
+{
+    return Name();
 }
 
 //
@@ -92,6 +113,16 @@ int MedianVectorLBound::middle() const
     return m_arr[(m_arr.size() - 1) / 2];
 }
 
+const char* MedianVectorLBound::Name() 
+{
+    return "MedianVectorLBound";
+}
+
+const char* MedianVectorLBound::name() const
+{
+    return Name();
+}
+
 //
 // MedianMultisetAdvance
 //
@@ -121,8 +152,15 @@ bool MedianMultisetAdvance::add(int a)
     return m_set.insert(a) != m_set.end();
 }
 
+const char* MedianMultisetAdvance::Name() 
+{
+    return "MedianMultisetAdvance";
+}
 
-
+const char* MedianMultisetAdvance::name() const
+{
+    return Name();
+}
 
 //
 //  MedianMultisetIterator
@@ -185,8 +223,8 @@ bool MedianMultisetIterator::add(int a)
         if (*it <= *m_it)
         {
             m_pos++;
-
-            if (m_pos * 2 >= m_set.size())
+            
+            if ((m_pos * 2) >= m_set.size())
             {
                 m_it--;
                 m_pos--;
@@ -194,7 +232,7 @@ bool MedianMultisetIterator::add(int a)
         }
         else
         {
-            if (m_pos * 2 < m_set.size() - 2)
+            if ((m_pos * 2) < m_set.size() - 2)
             {
                 m_it++;
                 m_pos++;
@@ -203,6 +241,17 @@ bool MedianMultisetIterator::add(int a)
     }
     return true;
 }
+
+const char* MedianMultisetIterator::Name() 
+{
+    return "MedianMultisetIterator";
+}
+
+const char* MedianMultisetIterator::name() const
+{
+    return Name();
+}
+
 
 //
 // MedianRBTree
@@ -230,3 +279,12 @@ bool MedianRBTree::add(int a)
     return m_bt.insert(a);
 }
 
+const char* MedianRBTree::Name() 
+{
+    return "MedianRBTree";
+}
+
+const char* MedianRBTree::name() const
+{
+    return Name();
+}

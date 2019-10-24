@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <random> 
 #include "UnitTests.h"
+#include "MedianFactory.h"
 
 using namespace std;
 
@@ -241,68 +242,36 @@ int test_median_random(Median& m)
 	}
 }
 
-int unitTest(Median& m)
+int unitTest(const char* name)
 {
+    std::unique_ptr<Median> m = create_Median(name);
+    if (!m)
+    {
+        cout << "Error creating:  " << name << endl;
+        return 1;
+    }
+
+    cout<< "Test " << m->name() << "...\n";
+
 	int errors = 0;
-	errors += test_median_basic(m);
-	errors += test_median_iter(m);
-	errors += test_median_random(m);
-	m.clear();
+	errors += test_median_basic(*m);
+	errors += test_median_iter(*m);
+	errors += test_median_random(*m);
+	m->clear();
+
+    cout << endl << "Errors: " << errors << endl;
+
 	return errors;
 }
 
-int unitTest_MedianVector()
+void unitTestAll()
 {
-	printf("Test MedianVector...\n");
-	MedianVector m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
-}
-
-int unitTest_MedianNthElement()
-{
-	printf("Test MedianNthElement...\n");
-	MedianNthElement m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
-}
-
-int unitTest_MedianVectorLBound()
-{
-	printf("Test MedianVectorLBound...\n");
-	MedianVectorLBound m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
-}
-
-int unitTest_MedianMultisetAdvance()
-{
-	printf("Test MedianMultisetAdvance...\n");
-	MedianMultisetAdvance m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
-}
-
-int unitTest_MedianMultisetIterator()
-{
-	printf("Test MedianMultisetIterator...\n");
-	MedianMultisetIterator m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
-}
-
-int unitTest_MedianRBTree()
-{
-	printf("Test MedianRBTree...\n");
-	MedianRBTree m;
-	int errors = unitTest(m);
-	printf("\nErrors: %d\n", errors);
-	return errors;
+    unitTest("MedianVector");
+    unitTest("MedianNthElement");
+    unitTest("MedianVectorLBound");
+    unitTest("MedianMultisetAdvance");
+    unitTest("MedianMultisetIterator");
+    unitTest("MedianRBTree");
 }
 
 

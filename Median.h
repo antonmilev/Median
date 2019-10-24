@@ -45,6 +45,8 @@ public:
     virtual size_t  size() const = 0;
     /// empty container
     virtual void    clear() = 0;
+    /// return string with container name
+    virtual const char* name() const = 0;
 };
 
 //!  MedianVector finds median using <b>std::vector</b> and <b>std::sort</b>
@@ -58,10 +60,12 @@ public:
 class MedianVector : public Median
 {
 public:
-    virtual bool    add(int a) ;
-    virtual int     middle() const;
-    virtual size_t  size() const ;
-    virtual void    clear() ;
+    virtual bool        add(int a) ;
+    virtual int         middle() const;
+    virtual size_t      size() const ;
+    virtual void        clear() ;
+    static const char*  Name() ;
+    virtual const char* name() const ;
     
 protected:
     /// vector used for storage of the sorted elements
@@ -80,10 +84,12 @@ protected:
 class MedianNthElement : public Median
 {
 public:
-    virtual bool    add(int a);
-    virtual int     middle() const;
-    virtual size_t  size() const;
-    virtual void    clear();
+    virtual bool        add(int a);
+    virtual int         middle() const;
+    virtual size_t      size() const;
+    virtual void        clear();
+    static const char*  Name() ;
+    virtual const char* name() const ;
 
 protected:
     /// vector used for storage of the sorted elements
@@ -103,10 +109,12 @@ protected:
 class MedianVectorLBound : public Median
 {
 public:
-    virtual bool    add(int a);
-    virtual int     middle() const;
-    virtual size_t  size() const;
-    virtual void    clear();
+    virtual bool        add(int a);
+    virtual int         middle() const;
+    virtual size_t      size() const;
+    virtual void        clear();
+    static const char*  Name() ;
+    virtual const char* name() const ;
 
 private:
     /// vector used for storage of the sorted elements
@@ -124,10 +132,12 @@ private:
 class MedianMultisetAdvance : public Median
 {
 public:
-    virtual bool    add(int a);
-    virtual int     middle() const;
-    virtual size_t  size() const;
-    virtual void    clear();
+    virtual bool        add(int a);
+    virtual int         middle() const;
+    virtual size_t      size() const;
+    virtual void        clear();
+    static const char*  Name() ;
+    virtual const char* name() const ;
 
 protected:
     /// multiset used for storage of the sorted elements
@@ -146,10 +156,12 @@ class MedianMultisetIterator : public Median
 {
 public:
     MedianMultisetIterator();
-    virtual bool    add(int a);
-    virtual int     middle() const;
-    virtual size_t  size() const;
-    virtual void    clear();
+    virtual bool        add(int a);
+    virtual int         middle() const;
+    virtual size_t      size() const;
+    virtual void        clear();
+    static const char* Name() ;
+    virtual const char* name() const ;
 
 protected:
     /// vector used for storage of the sorted elements
@@ -157,7 +169,7 @@ protected:
     /// iterator to the middle element inside the set
     std::multiset<int>::iterator    m_it;
     /// position of the middle element inside the set
-    unsigned int                    m_pos;
+    std::set<int>::size_type        m_pos;
 };
 
 /*!
@@ -172,14 +184,17 @@ protected:
 class MedianRBTree : public Median
 {
 public:
-    virtual bool    add(int a);
-    virtual int     middle() const;
-    virtual size_t  size() const;
-    virtual void    clear();
+    virtual bool        add(int a);
+    virtual int         middle() const;
+    virtual size_t      size() const;
+    virtual void        clear();
+    static const char*  Name() ;
+    virtual const char* name() const ;
 
 protected:
     /// RBTree container used for storage of the sorted elements
     RBTree  m_bt;
+    const char* N = "n" ;
 };
 
 

@@ -5,12 +5,7 @@
 
 int main()
 {   
-    unitTest_MedianVector();
-    unitTest_MedianNthElement();
-    unitTest_MedianVectorLBound();
-    unitTest_MedianMultisetAdvance();
-    unitTest_MedianMultisetIterator();
-    unitTest_MedianRBTree();
+    unitTestAll();
 
     // run these in Release only
 #ifdef NDEBUG
@@ -21,4 +16,3 @@ int main()
 
     return 0;
 }
-
