@@ -147,13 +147,16 @@ bool performanceTestAllRandom(int N)
         correct.push_back(sorted[(k - 1) / 2]);
     }
 
-    if (N <= 10000)
-    performanceTestRandom("MedianVector", random, correct);
-    performanceTestRandom("MedianNthElement", random, correct);
-    performanceTestRandom("MedianVectorLBound", random, correct);
-    performanceTestRandom("MedianMultisetAdvance", random, correct);
-    performanceTestRandom("MedianMultisetIterator", random, correct);
+    if (N <= 40000)
+    {
+        //performanceTestRandom("MedianVector", random, correct);
+        performanceTestRandom("MedianNthElement", random, correct);
+        performanceTestRandom("MedianVectorLBound", random, correct);
+        performanceTestRandom("MedianMultisetAdvance", random, correct);
+        performanceTestRandom("MedianMultisetIterator", random, correct);
+    }
     performanceTestRandom("MedianRBTree", random, correct);
+    performanceTestRandom("MedianMinMaxHeap", random, correct);
     return true;
 }
 
@@ -161,11 +164,15 @@ bool performanceTestAllWorst(int N)
 {
     cout << endl << "Performance Test Worst Iterations: " << N << endl;
 
-    performanceTestWorst("MedianNthElement", N);
-    performanceTestWorst("MedianVectorLBound", N);
-    performanceTestWorst("MedianMultisetAdvance", N);
-    performanceTestWorst("MedianMultisetIterator", N);
+    if (N <= 100000)
+    {
+        performanceTestWorst("MedianNthElement", N);
+        performanceTestWorst("MedianVectorLBound", N);
+        performanceTestWorst("MedianMultisetAdvance", N);
+        performanceTestWorst("MedianMultisetIterator", N);
+    }
     performanceTestWorst("MedianRBTree", N);
+    performanceTestWorst("MedianMinMaxHeap", N);
 
     return true;
 }
@@ -174,11 +181,16 @@ bool performanceTestAllRepeating(int N)
 {
     cout << endl << "Performance Test Repeating Iterations: " << N << endl;
 
-    performanceTestRepeating("MedianNthElement", N);
-    performanceTestRepeating("MedianVectorLBound", N);
-    performanceTestRepeating("MedianMultisetAdvance", N);
-    performanceTestRepeating("MedianMultisetIterator", N);
+    if (N <= 40000)
+    {
+        performanceTestRepeating("MedianNthElement", N);
+        performanceTestRepeating("MedianVectorLBound", N);
+        performanceTestRepeating("MedianMultisetAdvance", N);
+        performanceTestRepeating("MedianMultisetIterator", N);
+    }
+    
     performanceTestRepeating("MedianRBTree", N);
+    performanceTestRepeating("MedianMinMaxHeap", N);
 
     return true;
 }

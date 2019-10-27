@@ -1,20 +1,23 @@
-Performance Test Random Iterations: 20000
-MedianNthElement:       252.11 [ms]
-MedianVectorLBound:     12.06 [ms]
-MedianMultisetAdvance:  1655.99 [ms]
-MedianMultisetIterator: 543.48 [ms]
-MedianRBTree:           6.27 [ms]
+Performance Test Random Iterations: 40000
+MedianNthElement              1172.40 [ms]
+MedianVectorLBound            64.64 [ms]
+MedianMultisetAdvance         6882.17 [ms]
+MedianMultisetIterator        3795.27 [ms]
+MedianRBTree                  12.20 [ms]
+MedianMinMaxHeap              2.06 [ms]
 
 Performance Test Worst Iterations: 100000
-MedianNthElement:       9699.84 [ms]
-MedianVectorLBound:     736.90 [ms]
-MedianMultisetAdvance:  22515.73 [ms]
-MedianMultisetIterator: 18.45 [ms]
-MedianRBTree:           27.71 [ms]
+MedianNthElement              9689.95 [ms]
+MedianVectorLBound            721.89 [ms]
+MedianMultisetAdvance         17148.35 [ms]
+MedianMultisetIterator        16.17 [ms]
+MedianRBTree                  20.36 [ms]
+MedianMinMaxHeap              4.45 [ms]
 
-Performance Test Repeating Iterations: 20000
-MedianNthElement:       214.48 [ms]
-MedianVectorLBound:     13.38 [ms]
-MedianMultisetAdvance:  1307.94 [ms]
-MedianMultisetIterator: 1313.28 [ms]
-MedianRBTree:           3.52 [ms]
+Performance Test Repeating Iterations: 40000
+MedianNthElement              828.97 [ms]
+MedianVectorLBound            50.82 [ms]
+MedianMultisetAdvance         5433.60 [ms]
+MedianMultisetIterator        5450.29 [ms]
+MedianRBTree                  7.38 [ms]
+MedianMinMaxHeap              2.26 [ms]

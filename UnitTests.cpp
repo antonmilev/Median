@@ -272,6 +272,7 @@ void unitTestAll()
     unitTest("MedianMultisetAdvance");
     unitTest("MedianMultisetIterator");
     unitTest("MedianRBTree");
+    unitTest("MedianMinMaxHeap");
 }
 
 

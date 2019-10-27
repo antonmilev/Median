@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <set>
+#include <queue>
 #include "RBTree.h"
 
 /**
@@ -14,6 +15,7 @@
  *   MedianMultisetAdvance
  *   MedianMultisetIterator
  *   MedianRBTree 
+ *   MedianMinMaxHeap
  */
 
 //!  Median class
@@ -195,6 +197,34 @@ protected:
     /// RBTree container used for storage of the sorted elements
     RBTree  m_bt;
     const char* N = "n" ;
+};
+
+//!  MedianMinMaxHeap finds median using two <b>std::priority_queue</b>
+/*!
+   <br>MedianMinMaxHeap uses for storage container two binary heaps, one min and one max.
+   <br>Allows inserting duplicating values.
+   <br>Obtain the middle value as checks which of both heaps has more elements.
+   <br> See:  https://www.geeksforgeeks.org/median-of-stream-of-running-integers-using-stl/
+   <br><b>add() Average Complexity O(log n) </b>
+   <br><b>middle() Average Complexity O(1) </b>
+*/
+class MedianMinMaxHeap : public Median
+{
+public:
+    virtual bool	add(int a);
+    virtual int		middle() const;
+    virtual size_t	size() const;
+    virtual void	clear();
+    static const char*  Name();
+    virtual const char* name() const;
+
+protected:
+    // max heap to store the smaller half elements 
+    std::priority_queue<int, std::vector<int>, std::less<int> > m_s;
+    // min heap to store the greater half elements 
+    std::priority_queue<int, std::vector<int>, std::greater<int> > m_g;
+    // keep the middle element
+    int m_middle;
 };
 
 

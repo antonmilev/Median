@@ -288,3 +288,92 @@ const char* MedianRBTree::name() const
 {
     return Name();
 }
+
+//
+// MedianMinMaxHeap
+//
+
+bool MedianMinMaxHeap::add(int a)
+{
+    if (size() == 0)
+    {
+        m_s.push(a);
+        m_middle = a;
+        return true;
+    }
+
+    // case1(left side heap has more elements) 
+    if (m_s.size() > m_g.size())
+    {
+        if (a < m_middle)
+        {
+            m_g.push(m_s.top());
+            m_s.pop();
+            m_s.push(a);
+        }
+        else
+            m_g.push(a);
+
+        m_middle = m_s.top(); //(m_s.top() + m_g.top()) / 2.0;
+    }
+    // case2(both heaps are balanced) 
+    else if (m_s.size() == m_g.size())
+    {
+        if (a < m_middle)
+        {
+            m_s.push(a);
+            m_middle = m_s.top();
+        }
+        else
+        {
+            m_g.push(a);
+            m_middle = m_g.top();
+        }
+    }
+
+    // case3(right side heap has more elements) 
+    else
+    {
+        if (a > m_middle)
+        {
+            m_s.push(m_g.top());
+            m_g.pop();
+            m_g.push(a);
+        }
+        else
+            m_s.push(a);
+
+        m_middle = m_s.top(); //med = (m_s.top() + m_g.top()) / 2.0;
+    }
+
+    return true;
+}
+
+size_t MedianMinMaxHeap::size() const
+{
+    return m_s.size() + m_g.size();
+}
+
+void MedianMinMaxHeap::clear()
+{
+    m_s = std::priority_queue<int, std::vector<int>, std::less<int> >(); // reset it
+    m_g = std::priority_queue<int, std::vector<int>, std::greater<int> >();
+}
+
+int MedianMinMaxHeap::middle() const
+{
+    if (!size())
+        throw out_of_range("out of range");
+
+    return m_middle;
+}
+
+const char* MedianMinMaxHeap::Name()
+{
+    return "MedianMinMaxHeap";
+}
+
+const char* MedianMinMaxHeap::name() const
+{
+    return Name();
+}

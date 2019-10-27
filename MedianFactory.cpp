@@ -15,6 +15,8 @@ std::unique_ptr<Median> create_Median(const std::string& name)
         res = std::make_unique< MedianMultisetIterator>();
     else if (name == MedianRBTree::Name())
         res = std::make_unique< MedianRBTree>();
+    else if (name == MedianMinMaxHeap::Name())
+        res = std::make_unique< MedianMinMaxHeap>();
     // if we reach this point, return empty pointer
     return res;
 }
