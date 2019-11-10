@@ -11,7 +11,12 @@ Demonstrates several implementations of median of sorted elements calculation:
 <br> <b>MedianMinMaxHeap</b> - uses std::priority_queue as min and max binary heap (the fastest method)
 <br>
 <br>
-Compiled with VS2017 or later (with loading CMakeLists.txt from File->Open->CMake..).
+To compile with VS2017 or later: 
+load CMakeLists.txt from File->Open->CMake.., after generates cache is completed, choose CMake->Build all
+
+To compile with GCC:
+cmake -D CMAKE_BUILD_TYPE=Release .
+cmake -D CMAKE_BUILD_TYPE=Debug .
 
 This will build a console application that runs Unit Tests for several containers in Debug
 and several Performance tests in Release. 

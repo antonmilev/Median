@@ -19,5 +19,5 @@ configure_file (
 # so that we will find TutorialConfig.h
 include_directories("${PROJECT_BINARY_DIR}")
  
-add_executable(Median Main.cpp Median.cpp PerformanceTest.cpp UnitTests.cpp RBTree.cpp MedianFactory.cpp)
+add_executable(Median Main.cpp Median.cpp PerformanceTest.cpp UnitTests.cpp RBTree.cpp MedianFactory.cpp terminal.cpp)
 

@@ -3,32 +3,12 @@
 #include <set>
 #include <algorithm>
 #include <array>
-#include <Windows.h>
 #include <random> 
 #include "UnitTests.h"
 #include "MedianFactory.h"
+#include "terminal.h"
 
 using namespace std;
-
-static CONSOLE_SCREEN_BUFFER_INFO ConsoleInfo;
-static HANDLE  screen = GetStdHandle(STD_OUTPUT_HANDLE);
-void printc(int color, const char* output, ...)
-{
-	GetConsoleScreenBufferInfo(screen, &ConsoleInfo);
-	SetConsoleTextAttribute(screen, color);
-	va_list argList;
-	va_start(argList, output);
-	vprintf(output, argList);
-	va_end(argList);
-	SetConsoleTextAttribute(screen, ConsoleInfo.wAttributes);
-}
-
-void printResult(const char* fname, bool bRes)
-{
-	printf("%-#40s: ", fname);
-	bRes ? printc(2, "Passed\n") : printc(4, "Failed\n");
-	//bRes ? printf("Passed\n") : printf("Failed\n");
-}
 
 int test_median_basic(Median& m)
 {
