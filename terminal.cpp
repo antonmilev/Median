@@ -23,7 +23,7 @@ void printResult(const char* fname,bool bRes)
     bRes? printc(2,"Passed\n") :  printc(4,"Failed\n");
 }
 #else
-void printResult(const char* fname,bool bRes)
+void printResult(const char* fname, bool bRes)
 {
     printf("%-#40s: %s\n",fname,bRes? "\033[032m Passed \033[0m":"\033[031m Failed \033[0m");
 }
